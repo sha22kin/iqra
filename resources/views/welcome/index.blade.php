@@ -100,7 +100,9 @@
 <div class="iq-contact-detail-group">
 <div class="iq-contact-detail-label">Email</div>
 <div class="iq-contact-detail-value">
-<a class="iq-contact-detail-link" href="mailto:{{general()->email}}">{{general()->email}}</a>
+<a class="iq-contact-detail-link" href="mailto:{{general()->email}}">{{general()->email}}</a><br>
+<a class="iq-contact-detail-link" href="mailto:export@iqragroup.net">export@iqragroup.net</a><br>
+<a class="iq-contact-detail-link" href="mailto:import@iqragroup.net">import@iqragroup.net</a>
 </div>
 </div>
 <div class="iq-contact-detail-group">
