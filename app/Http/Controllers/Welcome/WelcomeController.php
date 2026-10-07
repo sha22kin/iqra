@@ -496,8 +496,9 @@ class WelcomeController extends Controller
         return response()->json(['success'=>true,'message'=>$successMsg]);
       }
 
+      // Booking requests are always emailed, even when the general mail switch is off
       $sent = false;
-      if(general()->mail_status && general()->mail_from_address){
+      if(general()->mail_from_address){
           $datas = array('booking'=>[
               'shipper' => $r->shipper,
               'consignee' => $r->consignee,
@@ -517,6 +518,7 @@ class WelcomeController extends Controller
       }
 
       if(!$sent){
+        \Log::warning('Booking mail not sent'.(general()->mail_from_address ? '' : ': Mail From Address is empty in mail settings'));
         $fallback = general()->email ?: general()->mail_from_address;
         return response()->json([
           'success'=>false,
