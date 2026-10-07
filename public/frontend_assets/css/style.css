@@ -389,6 +389,16 @@ img {
   padding-right: 20px;
 }
 
+.iq-text-red {
+  color: #e31e24;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+}
+
+.iq-overview-heading .iq-text-red {
+  font-weight: 600;
+}
+
 .iq-overview-heading {
   font-size: 38px;
   font-weight: 500;
@@ -406,6 +416,22 @@ img {
   line-height: 1.85;
   color: #4b5260;
   margin: 0;
+}
+
+@media (min-width: 1200px) {
+  .iq-overview-heading {
+    font-size: 31px;
+  }
+
+  .iq-overview-line {
+    white-space: nowrap;
+  }
+}
+
+@media (min-width: 1400px) {
+  .iq-overview-heading {
+    font-size: 38px;
+  }
 }
 
 /* --------------------------------------------------------------------------

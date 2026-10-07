@@ -15,15 +15,21 @@
     @endif
 </ul>
 <div class="iq-footer-socials">
-    <a aria-label="LinkedIn" class="iq-footer-social-btn" href="{{general()->linkedin_link ?: '#'}}" target="_blank" rel="noopener">
-        <i class="fa-brands fa-linkedin-in"></i>
-    </a>
-    <a aria-label="Facebook" class="iq-footer-social-btn" href="{{general()->facebook_link ?: '#'}}" target="_blank" rel="noopener">
-        <i class="fa-brands fa-facebook-f"></i>
-    </a>
-    <a aria-label="Instagram" class="iq-footer-social-btn" href="{{general()->instagram_link ?: '#'}}" target="_blank" rel="noopener">
-        <i class="fa-brands fa-instagram"></i>
-    </a>
+    @php $siteGeneral = general(); @endphp
+    @foreach([
+        'facebook_link' => ['Facebook','fa-facebook-f'],
+        'twitter_link' => ['Twitter','fa-x-twitter'],
+        'instagram_link' => ['Instagram','fa-instagram'],
+        'linkedin_link' => ['LinkedIn','fa-linkedin-in'],
+        'youtube_link' => ['YouTube','fa-youtube'],
+        'pinterest_link' => ['Pinterest','fa-pinterest-p'],
+    ] as $field => [$label,$icon])
+        @if($siteGeneral->$field)
+        <a aria-label="{{$label}}" class="iq-footer-social-btn" href="{{$siteGeneral->$field}}" target="_blank" rel="noopener">
+            <i class="fa-brands {{$icon}}"></i>
+        </a>
+        @endif
+    @endforeach
 </div>
 </div>
 <!-- Footer Bottom: Address & Contact Info -->
