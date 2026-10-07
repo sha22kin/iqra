@@ -450,8 +450,9 @@ class WelcomeController extends Controller
         return redirect()->to(url()->previous().$anchor);
       }
 
+      // Contact messages are always emailed, even when the general mail switch is off
       $sent = false;
-      if(general()->mail_status && general()->mail_from_address){
+      if(general()->mail_from_address){
           $datas = array('contact'=>[
               'name' => $r->name,
               'email' => $r->email,
@@ -470,6 +471,7 @@ class WelcomeController extends Controller
       if($sent){
         Session()->flash('contact_success',$successMsg);
       }else{
+        \Log::warning('Contact mail not sent'.(general()->mail_from_address ? '' : ': Mail From Address is empty in mail settings'));
         $fallback = general()->email ?: general()->mail_from_address;
         Session()->flash('contact_error','Sorry, your message could not be sent right now. Please try again later'.($fallback ? ' or email us directly at '.$fallback : '').'.');
         $r->flash();
@@ -562,7 +564,7 @@ class WelcomeController extends Controller
           'ip_address' => $r->ip(),
       ]);
 
-      if(general()->mail_status && general()->mail_from_address){
+      if(general()->mail_from_address){
           $datas = array('application'=>$application);
           $template = 'mails.CareerMail';
           $toEmail = general()->mail_from_address;
