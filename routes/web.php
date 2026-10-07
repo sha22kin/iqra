@@ -15,6 +15,7 @@ Route::get('/image/{template?}/{image?}',[WelcomeController::class,'imageView2']
 Route::get('/sitemap.xml',[WelcomeController::class,'siteMapXml'])->name('siteMapXml');
 Route::get('/search',[WelcomeController::class,'search'])->name('search');
 Route::post('/contact-mail',[WelcomeController::class,'contactMail'])->middleware('throttle:5,1')->name('contactMail');
+Route::post('/booking-request',[WelcomeController::class,'bookingMail'])->middleware('throttle:5,1')->name('bookingMail');
 Route::post('/career-apply',[WelcomeController::class,'careerApply'])->name('careerApply');
 Route::post('/subscribe',[WelcomeController::class,'subscribe'])->name('subscribe');
 Route::get('/switch/{lang?}',[WelcomeController::class,'language'])->name('language');

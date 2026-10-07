@@ -478,6 +478,55 @@ class WelcomeController extends Controller
       return redirect()->to(url()->previous().$anchor);
     }
 
+    public function bookingMail(Request $r){
+      $r->validate([
+          'shipper' => 'required|max:191',
+          'consignee' => 'required|max:191',
+          'commodity' => 'required|max:191',
+          'gross_weight' => 'required|max:100',
+          'cubic_volume' => 'required|max:100',
+          'destination' => 'required|max:191',
+          'email' => 'required|email|max:150',
+      ]);
+
+      $successMsg = 'Thank you! Your booking request has been sent. We will contact you soon.';
+
+      // Spam trap: real visitors never fill this hidden field
+      if($r->filled('website')){
+        return response()->json(['success'=>true,'message'=>$successMsg]);
+      }
+
+      $sent = false;
+      if(general()->mail_status && general()->mail_from_address){
+          $datas = array('booking'=>[
+              'shipper' => $r->shipper,
+              'consignee' => $r->consignee,
+              'commodity' => $r->commodity,
+              'gross_weight' => $r->gross_weight,
+              'cubic_volume' => $r->cubic_volume,
+              'destination' => $r->destination,
+              'email' => $r->email,
+              'sent_at' => now()->format('d M Y, h:i A'),
+              'page' => url()->previous(),
+          ]);
+          $toEmail = general()->mail_from_address;
+          $toName = general()->mail_from_name;
+          $subject = 'New Booking Request from '.$r->shipper.' - '.(general()->title ?: config('app.name'));
+
+          $sent = sendMail($toEmail,$toName,$subject,$datas,'mails.BookingMail',null,['email'=>$r->email,'name'=>$r->shipper]);
+      }
+
+      if(!$sent){
+        $fallback = general()->email ?: general()->mail_from_address;
+        return response()->json([
+          'success'=>false,
+          'message'=>'Sorry, your booking could not be sent right now. Please try again later'.($fallback ? ' or email us directly at '.$fallback : '').'.',
+        ],500);
+      }
+
+      return response()->json(['success'=>true,'message'=>$successMsg]);
+    }
+
     public function careerApply(Request $r){
       $r->validate([
           'first_name' => 'required|max:100',
