@@ -106,7 +106,7 @@ img {
 }
 
 .iq-navbar {
-  padding: 12px 0;
+  padding: 8px 0;
 }
 
 .iq-nav-container {
@@ -136,7 +136,7 @@ img {
 }
 
 .iq-logo-img {
-  height: 58px;
+  height: 74px;
   max-height: none;
   width: auto;
   max-width: 100%;
@@ -146,27 +146,27 @@ img {
 /* Laptop: keep room for the full menu, socials and Booking button */
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .iq-logo-img {
-    height: 50px;
+    height: 60px;
   }
 }
 
 /* Tablet & mobile (hamburger menu) */
 @media (max-width: 991.98px) {
   .iq-logo-img {
-    height: 50px;
+    height: 58px;
   }
 }
 
 @media (max-width: 575.98px) {
   .iq-logo-img {
-    height: 44px;
+    height: 50px;
   }
 }
 
 .iq-nav-menu-wrapper {
   display: flex;
   align-items: center;
-  gap: 36px;
+  gap: 24px;
 }
 
 .iq-nav-menu {
@@ -175,7 +175,7 @@ img {
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 22px;
+  gap: 18px;
 }
 
 .iq-nav-item {
@@ -274,13 +274,13 @@ img {
 .iq-header-actions {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 14px;
 }
 
 .iq-social-links {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 11px;
 }
 
 .iq-social-link {
@@ -315,6 +315,48 @@ img {
   background-color: var(--iq-primary-dark);
   color: #ffffff;
   border-color: var(--iq-primary-dark);
+}
+
+.iq-btn-quotation {
+  background-color: transparent;
+  color: var(--iq-primary);
+  font-size: 13px;
+  font-weight: 700 !important;
+  padding: 7px 18px;
+  border-radius: 4px;
+  border: 1px solid var(--iq-primary);
+  display: inline-block;
+  white-space: nowrap;
+  transition: var(--iq-transition);
+}
+
+.iq-btn-quotation:hover {
+  background-color: var(--iq-primary);
+  color: #ffffff;
+}
+
+/* Laptop: tighter spacing so the menu, socials and both buttons fit in one line */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .iq-nav-menu-wrapper {
+    gap: 16px;
+  }
+
+  .iq-nav-menu {
+    gap: 14px;
+  }
+
+  .iq-header-actions {
+    gap: 10px;
+  }
+
+  .iq-social-links {
+    gap: 9px;
+  }
+
+  .iq-btn-quotation,
+  .iq-btn-booking {
+    padding: 7px 12px;
+  }
 }
 
 .iq-mobile-toggle {
@@ -1160,6 +1202,7 @@ img {
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+    gap: 36px;
   }
 
   .iq-nav-menu-wrapper.iq-nav-open {
@@ -1236,6 +1279,16 @@ img {
   .iq-social-link {
     color: #ffffff;
     font-size: 18px;
+  }
+
+  .iq-btn-quotation {
+    color: #ffffff;
+    border-color: #ffffff;
+  }
+
+  .iq-btn-quotation:hover {
+    background-color: #ffffff;
+    color: var(--iq-primary);
   }
 
   .iq-mobile-toggle {

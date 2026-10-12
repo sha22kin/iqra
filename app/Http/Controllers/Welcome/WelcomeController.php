@@ -531,6 +531,70 @@ class WelcomeController extends Controller
       return response()->json(['success'=>true,'message'=>$successMsg]);
     }
 
+    public function quotationMail(Request $r){
+      $equipmentTypes = ['20 DRY','20 OPEN','20 REEF','20 TANK','40 DRY','40 FLAT','40 HDRY','40 HREF','40 OPEN','40 REEF','40 TANK','45 HDRY','45 HREF'];
+      $r->validate([
+          'name' => 'nullable|max:191',
+          'company' => 'nullable|max:191',
+          'phone' => 'nullable|max:30',
+          'email' => 'nullable|email|max:150',
+          'loading_port' => 'nullable|max:500',
+          'destination_port' => 'nullable|max:500',
+          'equipment_types' => 'nullable|array',
+          'equipment_types.*' => 'in:'.implode(',', $equipmentTypes),
+          'commodity' => 'nullable|max:191',
+          'dangerous' => 'nullable|in:Yes,No',
+          'imo_code' => 'nullable|max:100',
+          'potential_volume' => 'nullable|max:100',
+          'comments' => 'nullable|max:2000',
+      ]);
+
+      $successMsg = 'Thank you! Your quotation request has been sent. The rates will be quoted to you soon.';
+
+      // Spam trap: real visitors never fill this hidden field
+      if($r->filled('website')){
+        return response()->json(['success'=>true,'message'=>$successMsg]);
+      }
+
+      // Quotation requests are always emailed, even when the general mail switch is off
+      $sent = false;
+      if(general()->mail_from_address){
+          $datas = array('quotation'=>[
+              'name' => $r->name,
+              'company' => $r->company,
+              'phone' => $r->phone,
+              'email' => $r->email,
+              'loading_port' => $r->loading_port,
+              'destination_port' => $r->destination_port,
+              'equipment_types' => implode(', ', (array) $r->equipment_types),
+              'commodity' => $r->commodity,
+              'dangerous' => $r->dangerous,
+              'imo_code' => $r->imo_code,
+              'potential_volume' => $r->potential_volume,
+              'comments' => $r->comments,
+              'sent_at' => now()->format('d M Y, h:i A'),
+              'page' => url()->previous(),
+          ]);
+          $toEmail = general()->mail_from_address;
+          $toName = general()->mail_from_name;
+          $subject = 'New Quotation Request'.($r->name ? ' from '.$r->name : '').' - '.(general()->title ?: config('app.name'));
+          $replyTo = $r->email ? ['email'=>$r->email,'name'=>$r->name] : null;
+
+          $sent = sendMail($toEmail,$toName,$subject,$datas,'mails.QuotationMail',null,$replyTo);
+      }
+
+      if(!$sent){
+        \Log::warning('Quotation mail not sent'.(general()->mail_from_address ? '' : ': Mail From Address is empty in mail settings'));
+        $fallback = general()->email ?: general()->mail_from_address;
+        return response()->json([
+          'success'=>false,
+          'message'=>'Sorry, your quotation request could not be sent right now. Please try again later'.($fallback ? ' or email us directly at '.$fallback : '').'.',
+        ],500);
+      }
+
+      return response()->json(['success'=>true,'message'=>$successMsg]);
+    }
+
     public function careerApply(Request $r){
       $r->validate([
           'first_name' => 'required|max:100',
