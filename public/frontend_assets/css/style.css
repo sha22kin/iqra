@@ -124,6 +124,10 @@ img {
   letter-spacing: -0.5px;
   display: inline-flex;
   align-items: center;
+  /* Wide logo: take all the free space in the bar, never push the menu out */
+  flex: 1 1 0;
+  min-width: 0;
+  margin-right: 20px;
 }
 
 .iq-brand-logo span {
@@ -136,30 +140,49 @@ img {
 }
 
 .iq-logo-img {
-  height: 74px;
-  max-height: none;
-  width: auto;
-  max-width: 100%;
+  width: 100%;
+  height: auto;
+  max-height: 74px;
+  object-fit: contain;
+  object-position: left center;
   display: block;
+}
+
+/* Desktop: the logo text sits below the image centre (round icon is taller),
+   so nudge the logo up and the menu down to put the text in line with "Home" */
+@media (min-width: 992px) {
+  .iq-logo-img {
+    transform: translateY(-2%);
+  }
+
+  .iq-nav-menu-wrapper {
+    margin-top: 4px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .iq-nav-menu-wrapper {
+    margin-top: 9px;
+  }
 }
 
 /* Laptop: keep room for the full menu, socials and Booking button */
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .iq-logo-img {
-    height: 60px;
+    max-height: 60px;
   }
 }
 
 /* Tablet & mobile (hamburger menu) */
 @media (max-width: 991.98px) {
   .iq-logo-img {
-    height: 58px;
+    max-height: 58px;
   }
 }
 
 @media (max-width: 575.98px) {
   .iq-logo-img {
-    height: 50px;
+    max-height: 50px;
   }
 }
 
@@ -183,6 +206,7 @@ img {
 }
 
 .iq-nav-link {
+  white-space: nowrap;
   color: #000000;
   font-size: 14px;
   font-weight: 400 !important;
@@ -304,7 +328,7 @@ img {
   color: #ffffff;
   font-size: 13px;
   font-weight: 700 !important;
-  padding: 7px 22px;
+  padding: 7px 18px;
   border-radius: 4px;
   border: 1px solid var(--iq-primary);
   display: inline-block;
@@ -322,7 +346,7 @@ img {
   color: var(--iq-primary);
   font-size: 13px;
   font-weight: 700 !important;
-  padding: 7px 18px;
+  padding: 7px 16px;
   border-radius: 4px;
   border: 1px solid var(--iq-primary);
   display: inline-block;
