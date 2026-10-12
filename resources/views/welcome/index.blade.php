@@ -45,12 +45,12 @@
 <div class="row align-items-center">
 <div class="col-12 col-xl-7">
 <div class="iq-overview-heading-box">
-<h2 class="iq-overview-heading" data-aos="fade-down"><span class="iq-overview-line">Leading <span class="iq-text-red">Logistics</span> Service provider in</span><br/>Bangladesh</h2>
+<h2 class="iq-overview-heading" data-aos="fade-down"><span class="iq-overview-line">Leading Logistics Service Provider in</span><br/>Bangladesh</h2>
 </div>
 </div>
 <div class="col-12 col-xl-5">
 <div class="iq-overview-content-box">
-<p class="iq-overview-desc"><span class="iq-text-red">IQRA group</span> is the leading forwarder and logistics service provider in Bangladesh. With more than 30 years of service experience and more than <span class="iq-text-red">150</span> trusted partners worldwide, <span class="iq-text-red">IQRA group</span> is always a preferred choice <span class="iq-text-red">amoung</span> our partners.</p>
+<p class="iq-overview-desc">IQRA Group is the leading forwarder and logistics service provider in Bangladesh. With more than 30 years of service experience and more than 150 trusted partners worldwide, IQRA Group is always a preferred choice among our partners.</p>
 </div>
 </div>
 </div>

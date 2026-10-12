@@ -127,7 +127,7 @@
 
 <!-- Quotation Modal -->
 <div class="modal fade iq-quotation-modal" id="iqQuotationModal" tabindex="-1" aria-labelledby="iqQuotationModalLabel" aria-hidden="true">
-<div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable">
+<div class="modal-dialog modal-dialog-centered modal-xl">
 <div class="modal-content">
 <form id="iqQuotationForm" action="{{route('quotationMail')}}" method="post" novalidate>
 @csrf
