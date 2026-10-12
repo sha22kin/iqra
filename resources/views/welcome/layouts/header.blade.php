@@ -62,6 +62,8 @@
 </div>
 </nav>
 </div>
+<!-- Mobile menu backdrop: click to close -->
+<div class="iq-mobile-backdrop" id="iqMobileBackdrop"></div>
 </header>
 
 <!-- Booking Modal -->

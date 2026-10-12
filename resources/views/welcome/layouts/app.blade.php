@@ -17,7 +17,7 @@
     <!-- Font Awesome 6 Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
     <!-- External Custom CSS -->
-    <link href="{{asset('frontend_assets/css/style.css?v=10')}}" rel="stylesheet"/>
+    <link href="{{asset('frontend_assets/css/style.css?v=11')}}" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/>
     @stack('css')
 </head>
@@ -74,7 +74,6 @@
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>AOS.init({duration: 800, once: true, offset: 50});</script>
-    <div class="iq-mobile-backdrop" id="iqMobileBackdrop"></div>
     @stack('js')
 </body>
 </html>
