@@ -483,10 +483,10 @@ class WelcomeController extends Controller
     public function bookingMail(Request $r){
       $r->validate([
           'shipper' => 'required|max:191',
-          'consignee' => 'required|max:191',
+          'consignee' => 'nullable|max:191',
           'commodity' => 'required|max:191',
           'gross_weight' => 'required|max:100',
-          'cubic_volume' => 'required|max:100',
+          'cubic_volume' => 'nullable|max:100',
           'destination' => 'required|max:191',
           'email' => 'required|email|max:150',
       ]);

@@ -20,10 +20,10 @@
             <div style="background: #f1f1f1; padding: 10px; margin: 10px 0;">
                 <table>
                     <tr><th style="width: 150px;">Shipper</th><td>{{$b['shipper']}}</td></tr>
-                    <tr><th>Consignee</th><td>{{$b['consignee']}}</td></tr>
+                    <tr><th>Consignee</th><td>{{$b['consignee'] ?: '-'}}</td></tr>
                     <tr><th>Commodity</th><td>{{$b['commodity']}}</td></tr>
                     <tr><th>Gross Weight</th><td>{{$b['gross_weight']}}</td></tr>
-                    <tr><th>Cubic Volume</th><td>{{$b['cubic_volume']}}</td></tr>
+                    <tr><th>Cubic Volume</th><td>{{$b['cubic_volume'] ?: '-'}}</td></tr>
                     <tr><th>Destination</th><td>{{$b['destination']}}</td></tr>
                     <tr><th>Email Address</th><td><a href="mailto:{{$b['email']}}">{{$b['email']}}</a></td></tr>
                     <tr><th>Sent</th><td>{{$b['sent_at']}}</td></tr>

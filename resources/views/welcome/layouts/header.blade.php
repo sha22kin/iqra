@@ -85,8 +85,8 @@
 <div class="invalid-feedback"></div>
 </div>
 <div class="col-md-6">
-<label class="form-label" for="bk_consignee">CONSIGNEE <span class="text-danger">*</span></label>
-<input type="text" class="form-control" id="bk_consignee" name="consignee" maxlength="191" required>
+<label class="form-label" for="bk_consignee">CONSIGNEE</label>
+<input type="text" class="form-control" id="bk_consignee" name="consignee" maxlength="191">
 <div class="invalid-feedback"></div>
 </div>
 <div class="col-md-6">
@@ -105,8 +105,8 @@
 <div class="invalid-feedback"></div>
 </div>
 <div class="col-md-6">
-<label class="form-label" for="bk_cubic_volume">CUBIC VOLUME <span class="text-danger">*</span></label>
-<input type="text" class="form-control" id="bk_cubic_volume" name="cubic_volume" maxlength="100" placeholder="e.g. 5.5 CBM" required>
+<label class="form-label" for="bk_cubic_volume">CUBIC VOLUME</label>
+<input type="text" class="form-control" id="bk_cubic_volume" name="cubic_volume" maxlength="100" placeholder="e.g. 5.5 CBM">
 <div class="invalid-feedback"></div>
 </div>
 <div class="col-12">
