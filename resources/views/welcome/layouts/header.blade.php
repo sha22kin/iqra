@@ -56,7 +56,7 @@
 </div>
 <!-- Quotation & Booking CTA Buttons -->
 <a class="iq-btn-quotation" href="{{route('quotation')}}">Need Quotation</a>
-<a class="iq-btn-booking" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#iqBookingModal">Booking</a>
+<a class="iq-btn-booking" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#iqBookingModal">Booking<span class="iq-booking-now"> Now</span></a>
 </div>
 </div>
 </div>

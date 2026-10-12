@@ -383,6 +383,10 @@ img {
   }
 }
 
+.iq-booking-now {
+  display: none;
+}
+
 .iq-mobile-toggle {
   display: none;
   background: transparent;
@@ -1305,18 +1309,31 @@ img {
     font-size: 18px;
   }
 
-  .iq-btn-quotation {
+  .iq-header-actions .iq-btn-quotation {
     color: #ffffff;
     border-color: #ffffff;
   }
 
-  .iq-btn-quotation:hover {
+  .iq-header-actions .iq-btn-quotation:hover {
     background-color: #ffffff;
     color: var(--iq-primary);
   }
 
   .iq-mobile-toggle {
     display: inline-block;
+  }
+
+  /* Sidebar: "Booking Now" on top, "Need Quotation" below it */
+  .iq-header-actions .iq-btn-booking {
+    order: 1;
+  }
+
+  .iq-header-actions .iq-btn-quotation {
+    order: 2;
+  }
+
+  .iq-booking-now {
+    display: inline;
   }
 
   .iq-mobile-close-btn {
