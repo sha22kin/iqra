@@ -266,8 +266,8 @@ img {
 }
 
 .iq-dropdown-link:hover {
-  background-color: #fdf2f7;
-  color: var(--iq-primary);
+  background-color: var(--iq-primary);
+  color: #ffffff;
   padding-left: 22px;
 }
 
