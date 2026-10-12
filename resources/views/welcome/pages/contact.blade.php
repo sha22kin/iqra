@@ -35,8 +35,8 @@
 </div>
 <div class="contact-info-block mb-3">
 <div><strong>Telephone:</strong> 02226684851</div>
-<div><strong>Cell:</strong> +8801720518612</div>
-<div><strong>Whatsapp:</strong> +8801720518612</div>
+<div><strong>Cell:</strong> +8801720518612, +8801720518623, +8801720518624</div>
+<div><strong>Whatsapp:</strong> +8801720518612, +8801720518623, +8801720518624</div>
 <div><strong>Email:</strong> <a class="text-decoration-none text-dark" href="mailto:customs@iqragroup.net">customs@iqragroup.net</a>, <a class="text-decoration-none text-dark" href="mailto:import@iqragroup.net">import@iqragroup.net</a>, <a class="text-decoration-none text-dark" href="mailto:export@iqragroup.net">export@iqragroup.net</a></div>
 </div>
 <div class="contact-social-links">
