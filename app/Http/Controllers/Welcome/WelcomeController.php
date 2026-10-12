@@ -531,6 +531,10 @@ class WelcomeController extends Controller
       return response()->json(['success'=>true,'message'=>$successMsg]);
     }
 
+    public function quotation(){
+      return view(welcomeTheme().'pages.quotation');
+    }
+
     public function quotationMail(Request $r){
       $equipmentTypes = ['20 DRY','20 OPEN','20 REEF','20 TANK','40 DRY','40 FLAT','40 HDRY','40 HREF','40 OPEN','40 REEF','40 TANK','45 HDRY','45 HREF'];
       $r->validate([

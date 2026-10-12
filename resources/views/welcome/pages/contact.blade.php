@@ -34,18 +34,26 @@
 <div>Siraj Monjil (G/F), 3601/5899, Badamtoli, Agrabad-4100, Double Mooring, Chattogram</div>
 </div>
 <div class="contact-info-block mb-3">
-<div><strong>Telephone:</strong> 02226684851</div>
+<div><strong>Telephone:</strong> +8802226684851</div>
 <div><strong>Cell:</strong> +8801720518612, +8801720518623, +8801720518624</div>
 <div><strong>Whatsapp:</strong> +8801720518612, +8801720518623, +8801720518624</div>
-<div><strong>Email:</strong> <a class="text-decoration-none text-dark" href="mailto:customs@iqragroup.net">customs@iqragroup.net</a>, <a class="text-decoration-none text-dark" href="mailto:import@iqragroup.net">import@iqragroup.net</a>, <a class="text-decoration-none text-dark" href="mailto:export@iqragroup.net">export@iqragroup.net</a></div>
+<div><strong>Email:</strong> <a class="text-decoration-none text-dark" href="mailto:info@iqragroup.net">info@iqragroup.net</a>, <a class="text-decoration-none text-dark" href="mailto:import@iqragroup.net">import@iqragroup.net</a>, <a class="text-decoration-none text-dark" href="mailto:export@iqragroup.net">export@iqragroup.net</a></div>
 </div>
 <div class="contact-social-links">
-<a aria-label="LinkedIn" class="contact-social-link" href="https://www.linkedin.com/company/146633035/admin/dashboard/" target="_blank">
-<i class="fa-brands fa-linkedin-in"></i>
-</a>
-<a aria-label="Facebook" class="contact-social-link" href="https://www.facebook.com/profile.php?id=61594175524744&amp;sk=followers" target="_blank">
-<i class="fa-brands fa-facebook-f"></i>
-</a>
+@php $siteGeneral = general(); @endphp
+@foreach([
+    'linkedin_link' => ['LinkedIn','fa-linkedin-in'],
+    'facebook_link' => ['Facebook','fa-facebook-f'],
+    'twitter_link' => ['Twitter','fa-x-twitter'],
+    'instagram_link' => ['Instagram','fa-instagram'],
+    'youtube_link' => ['YouTube','fa-youtube'],
+] as $field => [$label,$icon])
+    @if(filter_var($siteGeneral->$field, FILTER_VALIDATE_URL))
+    <a aria-label="{{$label}}" class="contact-social-link" href="{{$siteGeneral->$field}}" target="_blank" rel="noopener">
+    <i class="fa-brands {{$icon}}"></i>
+    </a>
+    @endif
+@endforeach
 </div>
 </div>
 <!-- Right Column: Map -->

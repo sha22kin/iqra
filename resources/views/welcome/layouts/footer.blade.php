@@ -9,9 +9,9 @@
         @endforeach
     @else
         <li><a class="iq-footer-nav-link" href="{{route('index')}}">Home</a></li>
-        <li><a class="iq-footer-nav-link" href="{{url('about')}}">About</a></li>
-        <li><a class="iq-footer-nav-link" href="{{url('services')}}">Service</a></li>
-        <li><a class="iq-footer-nav-link" href="{{url('contact')}}">Contact</a></li>
+        <li><a class="iq-footer-nav-link" href="{{url('about-us')}}">About Us</a></li>
+        <li><a class="iq-footer-nav-link" href="{{url('services')}}">Services</a></li>
+        <li><a class="iq-footer-nav-link" href="{{url('contact-us')}}">Contact Us</a></li>
     @endif
 </ul>
 <div class="iq-footer-socials">
@@ -24,7 +24,7 @@
         'youtube_link' => ['YouTube','fa-youtube'],
         'pinterest_link' => ['Pinterest','fa-pinterest-p'],
     ] as $field => [$label,$icon])
-        @if($siteGeneral->$field)
+        @if(filter_var($siteGeneral->$field, FILTER_VALIDATE_URL))
         <a aria-label="{{$label}}" class="iq-footer-social-btn" href="{{$siteGeneral->$field}}" target="_blank" rel="noopener">
             <i class="fa-brands {{$icon}}"></i>
         </a>
